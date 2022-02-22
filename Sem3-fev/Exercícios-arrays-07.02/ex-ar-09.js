@@ -5,3 +5,5 @@ filaDePedidos.push("Pedido 15");
 filaDePedidos.shift("pedido 12")
 
 console.log(filaDePedidos);
+
+// respota
