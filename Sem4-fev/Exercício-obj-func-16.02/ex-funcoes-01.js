@@ -1,26 +1,25 @@
 // Sistema de correção de provas
 
-
-
-// Analisar resposta.
+let pontuacao = 0
+let nota = 0
 
 function corrigirProva(prova) {
+    // Pelo que entendi a função "corrigirProva" joga no parâmetro (prova) a variável, neste caso, 
+    // "provaaa" - devido a chamada "corrigirProva(provaaa)"
 
-    let questoesCorretas = 0;
-
-    for (const questao of prova.questoes) {
-        if (questao.resposta === questao.correta) {
-            questoesCorretas++;
+    for (let item of prova.questoes) {
+        if (item.resposta === item.correta) {
+            pontuacao = pontuacao + 1;
+            nota = nota + (prova.valor / prova.questoes.length);
         }
     }
-
-    let nota = (questoesCorretas * prova.valor / prova.questoes.length).toFixed(2);
-
-    console.log(`O(a) aluno(a) ${prova.aluno} acertou ${questoesCorretas} questões e obteve nota ${nota} em ${prova.materia}.`);
+    console.log(`O aluno ${prova.aluno} acertou ${pontuacao} questões e obteve nota ${nota}`);
 
 }
 
-const prova = {
+
+
+const provaaa = {
     aluno: "João",
     materia: "Português",
     valor: 10,
@@ -48,4 +47,4 @@ const prova = {
     ]
 }
 
-console.log(corrigirProva(prova))
+corrigirProva(provaaa)
